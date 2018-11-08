@@ -1,0 +1,50 @@
+﻿@model ImafanSolution.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Create a new account</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.ValidationSummary("", new { @class = "red" })
+
+
+    <div class="mt3">
+        @Html.LabelFor(m => m.Username, new { @class = "dib fw4 lh-copy" })
+        <span class="dib">
+            &ndash; <small>Hint: This will be in the URL for all your pages like <code>imafan.site/<b>jesse</b>/marshmallows</code></small>
+        </span>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Username, new { @class = "pa2 input-reset ba w-100 w-50-ns" })
+        </div>
+    </div>
+
+    <div class="mt3">
+        @Html.LabelFor(m => m.Email, new { @class = "db fw4 lh-copy" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "pa2 input-reset ba w-100 w-50-ns" })
+        </div>
+    </div>
+
+    <div class="mt3">
+        @Html.LabelFor(m => m.Password, new { @class = "db fw4 lh-copy" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "pa2 input-reset ba w-100 w-50-ns" })
+        </div>
+    </div>
+
+    <div class="mt3">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "db fw4 lh-copy" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "pa2 input-reset ba w-100 w-50-ns" })
+        </div>
+    </div>
+
+    <div class="mt3">
+        <input type="submit" value="Register"
+            class="b ph3 pv2 input-reset ba b--black bg-transparent hover-bg-blue pointer"/>
+    </div>  
+}

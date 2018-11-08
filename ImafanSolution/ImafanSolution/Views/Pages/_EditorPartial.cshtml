@@ -1,0 +1,9 @@
+﻿@model ImafanSolution.ViewModels.EditorViewModel
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "", role = "form" }))
+{
+
+}
+
+<textarea name="newContent" id="newContent"
+          class="js-editor code w-100">@Model.Content</textarea>
